@@ -9,7 +9,7 @@
 	"compileType": "weapp",
 	"libVersion": "1.6.0",
 	"appid": "wx09237785c0a6b162",
-	"projectname": "xsbWXApplet",
+	"projectname": "practiceWXApplet",
 	"miniprogramRoot": "./",
 	"condition": {
 		"weapp": {
