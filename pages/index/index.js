@@ -15,5 +15,11 @@ Page({
     duration: 1000,
     circular: true
   },
+  //页面跳转
+  jumpTo: function (event) {
+    wx.navigateTo({
+      url: event.currentTarget.dataset.url
+    })
+  },
   
 })

@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/chapter/chapter",
     "pages/index/index",
+    "pages/news/news",
     "pages/logs/logs"
   ],
   "window":{

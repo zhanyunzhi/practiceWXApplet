@@ -1,0 +1,24 @@
+.container{
+  padding: 40rpx 40rpx 10rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:flex-start;
+}
+.chapter{
+  background-color: #eaf6ff;
+  width: 315rpx;
+  text-align: center;
+  padding: 30rpx 10rpx 28rpx;
+  margin: 0 0 30rpx;
+  box-sizing: border-box;
+  color: #4fb8fc;
+}
+.title{
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+}
+.intro{
+  font-size: 24rpx;
+}

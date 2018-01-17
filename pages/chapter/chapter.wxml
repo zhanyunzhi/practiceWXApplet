@@ -1,0 +1,7 @@
+<!--chapter.wxml-->
+<view class="container">
+  <view wx:for="{{chapters}}" wx:for-item="chapter" wx:key="cid" class="chapter">
+    <view class="title">{{chapter.title}}</view>
+    <view class="intro">{{chapter.title}}</view>
+  </view>
+</view>
