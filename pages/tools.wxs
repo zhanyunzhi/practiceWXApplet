@@ -1,0 +1,5 @@
+var subStr4Space = function(str, idx) {
+  return str.split(' ')[idx];
+}
+
+module.exports.subStr4Space = subStr4Space;
