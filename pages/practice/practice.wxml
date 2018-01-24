@@ -1,0 +1,21 @@
+<!--practice.wxml-->
+<view class="container">
+  <view class="question">
+    <text class="question-type">单选</text>
+    <text class="question-stem" decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{topic.qno}}.{{topic.main_content}}</text>
+  </view>
+  <radio-group class="radio-group" bindchange="selectAnswer">
+    <label class="radio" wx:for="{{topic.options}}" wx:for-item="options" wx:for-index="index" wx:key="index">
+      <radio value="{{options.index}}" />{{index}}. {{options}}
+    </label>
+  </radio-group>
+  <view class="answer">
+    <view class="answer-right">答对！</view>
+    <!-- <view class="answer-wrong">答错！</view>  -->
+    <view class="answer-correct">正确答案：{{topic.option_right}}</view> 
+  </view>
+  <view class="analysis">
+    <text>解析：{{topic.analysis_content}}</text>
+  </view>
+  <button bindtap="next">下一题</button>
+</view>

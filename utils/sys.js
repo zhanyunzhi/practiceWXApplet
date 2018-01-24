@@ -14,7 +14,7 @@ const ajax = (param, success, fail, complete) => {      //获取接口服务器�
   wx.request({
     url: param.url, //仅为示例，并非真实的接口地址
     data: param.data || {},
-    header: param.header || '',
+    header: param.header || {},
     method: param.method || 'GET',
     dataType: param.dataType || '',
     responseType: param.responseType || '',

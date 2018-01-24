@@ -1,8 +1,13 @@
 <!--chapter.wxml-->
 <wxs src="../tools.wxs" module="tools" />
 <view class="container">
-  <view wx:for="{{chapters}}" wx:for-item="chapter" wx:key="cid" class="chapter">
-    <view class="title">{{tools.subStr4Space(chapter.title,0)}}</view>
-    <view class="intro">{{tools.subStr4Space(chapter.title,1)}}</view>
-  </view>
+
+    <view bindtap="jumpToPractice" data-url="/pages/practice/practice?cid={{chapter.cid}}" data-title="{{chapter.title}}" open-type="navigate" hover-class="navigator-hover"
+          wx:for="{{chapters}}" wx:for-item="chapter"
+          wx:key="cid"
+       class="chapter">
+      <view class="title">{{tools.subStr4Space(chapter.title,0)}}</view>
+      <view class="intro">{{tools.subStr4Space(chapter.title,1)}}</view>
+    </view>
+  
 </view>

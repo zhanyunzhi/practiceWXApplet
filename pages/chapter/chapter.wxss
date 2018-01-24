@@ -7,18 +7,21 @@
   align-items:flex-start;
 }
 .chapter{
-  background-color: #eaf6ff;
-  width: 315rpx;
+  background-color: rgba(9,187,7,.1);
+  width: 670rpx;
   text-align: center;
   padding: 30rpx 10rpx 28rpx;
   margin: 0 0 30rpx;
   box-sizing: border-box;
-  color: #4fb8fc;
+  color: #09bb07;
 }
 .title{
-  font-size: 30rpx;
+  font-size: 36rpx;
   margin-bottom: 30rpx;
 }
 .intro{
-  font-size: 24rpx;
+  font-size: 34rpx;
+}
+.navigator-hover {
+    background-color: rgba(9,187,7,.2);
 }

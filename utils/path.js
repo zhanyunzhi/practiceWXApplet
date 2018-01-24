@@ -1,6 +1,7 @@
 const getPath = (id) => {    //获取接口地址
   const path = {
-    'practiceList': 'practice/list'
+    'practiceList': 'practice/list',
+    'questionsAfter': 'practice/chapter/questions_after',
   }
   return path[id];
 }
