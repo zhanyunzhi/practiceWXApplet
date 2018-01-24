@@ -56,5 +56,8 @@ Page({
   next: function(){
     count++;
     this.getNowTopic();
+  },
+  selectAnswer: function(){
+    console.log("选择了答案")
   }
 })
