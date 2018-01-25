@@ -13,17 +13,17 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-//Êı×éÈ¥ÖØ
+//æ•°ç»„å»é‡
 const arrayUnique = array => {
-  var temp = []; //Ò»¸öĞÂµÄÁÙÊ±Êı×é
-  for(var i = 0; i < array.length; i++){//±éÀúµ±Ç°Êı×é
-    if (temp.indexOf(array[i]) == -1) temp.push(array[i]);//Èç¹ûµ±Ç°Êı×éµÄµÚiÒÑ¾­±£´æ½øÁËÁÙÊ±Êı×é£¬ÄÇÃ´Ìø¹ı£¬·ñÔò°Ñµ±Ç°Ïîpushµ½ÁÙÊ±Êı×éÀïÃæ
+  var temp = []; //ä¸€ä¸ªæ–°çš„ä¸´æ—¶æ•°ç»„
+  for(var i = 0; i < array.length; i++){//éå†å½“å‰æ•°ç»„
+    if (temp.indexOf(array[i]) == -1) temp.push(array[i]);//å¦‚æœå½“å‰æ•°ç»„çš„ç¬¬iå·²ç»ä¿å­˜è¿›äº†ä¸´æ—¶æ•°ç»„ï¼Œé‚£ä¹ˆè·³è¿‡ï¼Œå¦åˆ™æŠŠå½“å‰é¡¹pushåˆ°ä¸´æ—¶æ•°ç»„é‡Œé¢
   }
   return temp;
 }
-//º¯ÊıÃû:  arrayRemoveByValue
-//¹¦ÄÜ:    É¾³ıÊı×éÖĞµÄÄ³¸öÖµ
-//ÊäÈë²ÎÊı: arr  ±»Çå¿ÕµÄÊı×é ;val  ±»É¾³ıµÄÖµ
+//å‡½æ•°å:  arrayRemoveByValue
+//åŠŸèƒ½:    åˆ é™¤æ•°ç»„ä¸­çš„æŸä¸ªå€¼
+//è¾“å…¥å‚æ•°: arr  è¢«æ¸…ç©ºçš„æ•°ç»„ ;val  è¢«åˆ é™¤çš„å€¼
 const arrayRemoveByValue = (arr, val) => {
   for(var i=0; i<arr.length; i++) {
     if(arr[i] == val) {
@@ -33,9 +33,9 @@ const arrayRemoveByValue = (arr, val) => {
   }
   return arr;
 }
-//º¯ÊıÃû:  arrayEquals
-//¹¦ÄÜ:    ±È½ÏÁ½¸öÊı×éÊÇ·ñÒ»Ñù
-//ÊäÈë²ÎÊı: arr1  Êı×é1 ;arr2   Êı×é2
+//å‡½æ•°å:  arrayEquals
+//åŠŸèƒ½:    æ¯”è¾ƒä¸¤ä¸ªæ•°ç»„æ˜¯å¦ä¸€æ ·
+//è¾“å…¥å‚æ•°: arr1  æ•°ç»„1 ;arr2   æ•°ç»„2
 const arrayEquals = (arr1, arr2) => {
   if (!arr1 || !arr2) return false;
   if (arr1.length != arr2.length)

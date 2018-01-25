@@ -21,6 +21,7 @@ Page({
     singleSelectAnswer: '', //单选选择用户选择的答案
     inMultiSelect: {}, //多选题用户当前选择的那一个答案
     multiAnswerDataSet: [], //多选题用户存多选题的答案,最终拿去做结果比较的变量
+    isShowPop: false, //是否打开题目选择框
     footerConfig: {     //footer的配置
       isShow: true,    //是否显示底部菜单
       isIndex: true,     //是否显示底部菜单的“首页”
@@ -33,9 +34,9 @@ Page({
     wx.getStorage({     //将章节标题从storage中取出
       key:"chapters",
       complete: function(res) {
-        chapterLen = res.data.len;
+        chapterLen = res.data && res.data.len || 12;
         wx.setNavigationBarTitle({
-          title: res.data.title || '章节练习'        //动态设置页面标题
+          title:  res.data && res.data.title || '章节练习'        //动态设置页面标题
         });
       }
     });
@@ -53,7 +54,7 @@ Page({
     data.type = topicType;
     let param = {};
     param.url = url;
-    param.data = data;
+    param.data = data;    //参数
     param.method = 'POST';
     sys.ajax(param, function(res){
       if (res.data.code == '0') {      //请求响应成功并拿到数据
@@ -159,6 +160,15 @@ Page({
         answerRight: false     //是否回答正确
       });
     }
-
-  }
+  },
+  showPop: function() {
+    this.setData({
+      isShowPop: true
+    });
+  },
+  closePop: function () {
+    this.setData({
+      isShowPop: false
+    });
+  },
 })

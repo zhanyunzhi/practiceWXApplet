@@ -8,7 +8,7 @@
     <image class="icon-collect" mode="widthFix" src="../../assets/images/collect.png"></image>
     <text>收藏</text>
   </view>
-  <view wx:if="{{footerConfig.isSelectTopic}}">
+  <view wx:if="{{footerConfig.isSelectTopic}}" bindtap="showPop">
     <image class="icon-select-topic" mode="widthFix" src="../../assets/images/select-topic.png"></image>
     <text>选题</text>
   </view>

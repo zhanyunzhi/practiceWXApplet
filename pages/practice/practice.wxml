@@ -41,3 +41,48 @@
 </view>
 
 <include src="../public/footer.wxml"/>
+
+<view class="pop-up-box" hidden='{{!isShowPop}}' bindtap='closePop'>
+  <view class="serial-number">
+    <view class="label">单选</view>
+    <text>1</text>
+    <text class="active">2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+  </view>
+  <view class="serial-number">
+    <view class="label">多选</view>
+    <text>1</text>
+    <text class="active">2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+  </view>
+  <view class="serial-number">
+    <view class="label">判断</view>
+    <text>1</text>
+    <text class="active">2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+    <text>2</text>
+  </view>
+</view>
