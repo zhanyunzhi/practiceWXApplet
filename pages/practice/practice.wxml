@@ -1,21 +1,43 @@
 <!--practice.wxml-->
 <view class="container">
   <view class="question">
-    <text class="question-type">单选</text>
+    <text class="question-type">{{topic.type == 0 ? '单选' : topic.type == 1 ? '多选' : '判断'}}</text>
     <text class="question-stem" decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{topic.qno}}.{{topic.main_content}}</text>
   </view>
-  <radio-group class="radio-group" bindchange="selectAnswer">
-    <label class="radio" wx:for="{{topic.options}}" wx:for-item="options" wx:for-index="index" wx:key="index">
-      <radio value="{{options.index}}" />{{index}}. {{options}}
-    </label>
-  </radio-group>
-  <view class="answer">
-    <view class="answer-right">答对！</view>
-    <!-- <view class="answer-wrong">答错！</view>  -->
-    <view class="answer-correct">正确答案：{{topic.option_right}}</view> 
+  
+  <view class="options-group" wx:if="{{topic.type == 0}}">      <!-- 单选题 -->
+    <view class="options {{singleSelectAnswer==index?'active':''}}" bindtap="selectAnswer" data-answer="{{index}}" wx:for="{{topic.options}}" wx:for-item="options"
+          wx:for-index="index"
+          wx:key="index">
+      <text class="options-k">{{index}}</text>{{options}}
+    </view>
   </view>
-  <view class="analysis">
-    <text>解析：{{topic.analysis_content}}</text>
+
+  <view class="options-group" wx:if="{{topic.type == 1}}">      <!-- 多选题 -->
+    <view class="options {{inMultiSelect[index]==true?'active':''}}" bindtap="collectAnswer" data-answer="{{index}}" wx:for="{{topic.options}}"
+          wx:for-item="options"
+          wx:for-index="index"
+          wx:key="index">
+      <text class="options-k">{{index}}</text>{{options}}
+    </view>
   </view>
-  <button bindtap="next">下一题</button>
+
+  <view class="options-group" wx:if="{{topic.type == 2}}">      <!-- 判断题 -->
+    <view class="options {{singleSelectAnswer=='true'?'color-green':''}}" bindtap="selectAnswer" data-answer="true">true</view>
+    <view class="options {{singleSelectAnswer=='false'?'color-green':''}}" bindtap="selectAnswer" data-answer="false">false</view>
+  </view>
+
+  <block wx:if="{{showResult}}">
+    <view class="answer">
+      <view class="answer-right" wx:if="{{answerRight}}">答对！</view>
+       <view class="answer-wrong" wx:else>答错！</view>
+      <view class="answer-correct">正确答案：{{topic.option_right}}</view>
+    </view>
+    <view class="analysis">
+      <text>解析：{{topic.analysis_content}}</text>
+    </view>
+  </block>
+  <button type="primary" class="multi-button" size="default" bindtap="submitMultiAnswer" hover-class="button-hover" disabled="{{showResult}}">确定</button>
 </view>
+
+<include src="../public/footer.wxml"/>

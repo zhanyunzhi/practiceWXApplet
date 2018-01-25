@@ -2,7 +2,8 @@
 <wxs src="../tools.wxs" module="tools" />
 <view class="container">
 
-    <view bindtap="jumpToPractice" data-url="/pages/practice/practice?cid={{chapter.cid}}" data-title="{{chapter.title}}" open-type="navigate" hover-class="navigator-hover"
+    <view bindtap="jumpToPractice" data-url="/pages/practice/practice?cid={{chapter.cid}}" data-title="{{chapter.title}}" data-len="{{chapters.length}}" open-type="navigate"
+          hover-class="navigator-hover"
           wx:for="{{chapters}}" wx:for-item="chapter"
           wx:key="cid"
        class="chapter">

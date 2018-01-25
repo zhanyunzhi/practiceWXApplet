@@ -1,0 +1,19 @@
+<!-- footer,底部快捷操作，根据不同的配置显示不同的快捷操作按钮 -->
+<view class="footer" wx:if="{{footerConfig.isShow}}">
+  <view wx:if="{{footerConfig.isIndex}}">
+    <image class="icon-home" mode="widthFix" src="../../assets/images/home.png"></image>
+    <text>首页</text>
+  </view>
+  <view wx:if="{{footerConfig.isCollect}}">
+    <image class="icon-collect" mode="widthFix" src="../../assets/images/collect.png"></image>
+    <text>收藏</text>
+  </view>
+  <view wx:if="{{footerConfig.isSelectTopic}}">
+    <image class="icon-select-topic" mode="widthFix" src="../../assets/images/select-topic.png"></image>
+    <text>选题</text>
+  </view>
+  <view wx:if="{{footerConfig.isNextTopic}}" bindtap="next">
+    <image class="icon-next" mode="widthFix" src="../../assets/images/next.png"></image>
+    <text>下一题</text>
+  </view>
+</view>

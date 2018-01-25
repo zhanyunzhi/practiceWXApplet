@@ -27,8 +27,11 @@ Page({
   //页面跳转
   jumpToPractice: function (event) {
     wx.setStorage({     //将章节标题存入storage中
-      key:"chaptersTitle",
-      data:event.currentTarget.dataset.title
+      key:"chapters",
+      data:{
+        title:event.currentTarget.dataset.title,      //章节标题
+        len:event.currentTarget.dataset.len           //章节数
+      }
     });
     wx.navigateTo({
       url: event.currentTarget.dataset.url
