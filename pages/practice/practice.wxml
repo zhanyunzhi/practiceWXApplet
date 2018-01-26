@@ -37,52 +37,16 @@
       <text>解析：{{topic.analysis_content}}</text>
     </view>
   </block>
-  <button type="primary" class="multi-button" size="default" bindtap="submitMultiAnswer" hover-class="button-hover" disabled="{{showResult}}">确定</button>
+  <button wx:if="{{topic.type == 1}}" type="primary" class="multi-button" size="default" bindtap="submitMultiAnswer" hover-class="button-hover" disabled="{{showResult}}">确定</button>
 </view>
 
 <include src="../public/footer.wxml"/>
 
-<view class="pop-up-box" hidden='{{!isShowPop}}' bindtap='closePop'>
-  <view class="serial-number">
-    <view class="label">单选</view>
-    <text>1</text>
-    <text class="active">2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
+<scroll-view scroll-y="true" class="pop-up-box" hidden='{{!isShowPop}}'>
+  <view class="pop-close" bindtap='closePop'>关闭</view>
+  <view class="serial-number" wx:for="{{sortNumbers}}" wx:for-item="sortNumber" wx:for-index="index" wx:key="index">
+    <view class="label">{{index == 0 ? '单选' : index == 1 ? '多选' : '判断'}}</view>
+    <text wx:for="{{sortNumber}}" wx:for-item="number" wx:key="qid" class="{{number.isFinish?'active':''}}" bindtap="goToTopic" data-qno="{{number.qno}}"
+          data-topic-type="{{number.type}}">{{number.qno}}</text>
   </view>
-  <view class="serial-number">
-    <view class="label">多选</view>
-    <text>1</text>
-    <text class="active">2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-  </view>
-  <view class="serial-number">
-    <view class="label">判断</view>
-    <text>1</text>
-    <text class="active">2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-    <text>2</text>
-  </view>
-</view>
+</scroll-view>

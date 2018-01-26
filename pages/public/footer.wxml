@@ -10,7 +10,7 @@
   </view>
   <view wx:if="{{footerConfig.isSelectTopic}}" bindtap="showPop">
     <image class="icon-select-topic" mode="widthFix" src="../../assets/images/select-topic.png"></image>
-    <text>选题</text>
+    <text>{{nowCount}}/{{sumCount}}</text>
   </view>
   <view wx:if="{{footerConfig.isNextTopic}}" bindtap="next">
     <image class="icon-next" mode="widthFix" src="../../assets/images/next.png"></image>

@@ -11,7 +11,7 @@ const showToast = (title, icon, duration) => {    //提示框
 }
 
 const showModal = (title, content, suc, cancel) => {    //显示模态弹窗
-  wx.showToast({
+  wx.showModal({
     title: title || '提示',
     content: content || '这是一个模态弹窗',
     success: function(res) {
