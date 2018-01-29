@@ -7,8 +7,8 @@
           wx:for="{{chapters}}" wx:for-item="chapter"
           wx:key="cid"
        class="chapter">
-      <view class="title">{{tools.subStr4Space(chapter.title,0)}}</view>
-      <view class="intro">{{tools.subStr4Space(chapter.title,1)}}</view>
+      <view class="title">{{chapter.title}}</view>
+      <view class="intro">{{chapter.content}}</view>
     </view>
   
 </view>

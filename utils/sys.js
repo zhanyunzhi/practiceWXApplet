@@ -1,5 +1,9 @@
 const getHost = () => {      //获取接口服务器地址
-  return 'http://s1.p5w.net/s_exam/';
+  if(true){
+    return 'http://localhost/signature/public/index/xsb/';
+  }else{
+    return 'http://s1.p5w.net/s_exam/';
+  }
 }
 
 const showToast = (title, icon, duration) => {    //提示框
@@ -37,13 +41,18 @@ const ajax = (param, success, fail, complete) => {      //获取接口服务器�
     dataType: param.dataType || '',
     responseType: param.responseType || '',
     success: function (res) {
-      success(res);
+      wx.hideLoading();
+      if(res.data.code == '000000'){
+        success && success(res);
+      } else if (res.data.code != '000000') {
+        wx.showToast(res.data.message);
+      }
     },
     fail: function (res) {     //接口响应失败
+      wx.hideLoading();
       (fail && fail(res)) || sys.showToast('获取数据失败!');
     },
     complete: function(res){
-      wx.hideLoading();
       complete && fail(complete);
     }
   })

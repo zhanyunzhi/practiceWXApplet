@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/practice/practice",
     "pages/chapter/chapter",
+    "pages/practice/practice",
     "pages/index/index",
     "pages/news/news",
     "pages/logs/logs"
