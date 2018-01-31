@@ -67,13 +67,9 @@ Page({
     param.data = data;    //参数
     param.method = 'POST';
     sys.ajax(param, function(res){
-      if (res.data.code == '0') {      //请求响应成功并拿到数据
-        _this.data.topics = res.data.data;
-        if(isNewTopic){     //需要更新显示的题目
-          _this.getNowTopic();
-        }
-      } else {      //请求响应成功但是没有返回所需的数据
-        sys.showToast(res.data.message);
+      _this.data.topics = res.data.data;  //请求响应成功并拿到数据
+      if(isNewTopic){     //需要更新显示的题目
+        _this.getNowTopic();
       }
     });
   },
@@ -199,27 +195,23 @@ Page({
   },
   getSerialNumber: function () {    //获取题目选择的列表数据
     let _this = this;
-    let url = sys.getHost() + path.getPath('list') + '?cid=' + cid;
+    let url = sys.getHost() + path.getPath('practiceList') + '?cid=' + cid;
     let param = {};
     param.url = url;
     param.method = 'GET';
     sys.ajax(param, function (res) {
-      if (res.data.code == '0') {      //请求响应成功并拿到数据
-        _this.setData({
-          sortNumbers: res.data.data.list
-        });
-        for(var datas in _this.data.sortNumbers){
-          _this.data.sumCount += _this.data.sortNumbers[datas].length;
-        }
-        _this.setData({
-          sumCount: _this.data.sumCount
-        });
-        wx.setNavigationBarTitle({
-          title: res.data.data.chapter_title || '章节练习'        //动态设置页面标题
-        });
-      } else {      //请求响应成功但是没有返回所需的数据
-        sys.showToast(res.data.message);
+      _this.setData({     //请求响应成功并拿到数据
+        sortNumbers: res.data.data.list
+      });
+      for(var datas in _this.data.sortNumbers){
+        _this.data.sumCount += _this.data.sortNumbers[datas].length;
       }
+      _this.setData({
+        sumCount: _this.data.sumCount
+      });
+      wx.setNavigationBarTitle({
+        title: res.data.data.chapter_title || '章节练习'        //动态设置页面标题
+      });
     });
   },
   //对选题列表的题目进行标识，也就是被做过的题目会被标识成绿色，这里给数据集内的对应数据追加一个属性，isFinish

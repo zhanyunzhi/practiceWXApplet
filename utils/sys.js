@@ -33,24 +33,39 @@ const ajax = (param, success, fail, complete) => {      //获取接口服务器�
     title: param.msg || '数据加载中...',
     mask: true
   })
+  param.header = {token: 'tiny'};
   wx.request({
     url: param.url, //仅为示例，并非真实的接口地址
     data: param.data || {},
-    header: param.header || {},
+    header: param.header,
     method: param.method || 'GET',
     dataType: param.dataType || '',
     responseType: param.responseType || '',
-    success: function (res) {
+    success: function (res) {   //这里是调用微信的wx.requestApi成功
       wx.hideLoading();
-      if(res.data.code == '000000'){
-        success && success(res);
-      } else if (res.data.code != '000000') {
-        wx.showToast(res.data.message);
+      if(res.statusCode == 200){    //状态码200，是后台服务器返回成功
+        if(res.data.code == '000000'){    //接口返回正常数据
+          success && success(res);
+        } else if (res.data.code != '000000') {   //接口返回非正常数据（参数错误，数据库错误等的处理）
+          wx.showToast({
+            title: res.data.message,
+            icon: 'loading'
+          });
+        }
+      } else {    //后台服务器返回非200状态的处理
+        wx.showToast({
+          title: '服务器访问失败',
+          icon: 'loading'
+        });
       }
     },
     fail: function (res) {     //接口响应失败
       wx.hideLoading();
-      (fail && fail(res)) || sys.showToast('获取数据失败!');
+      (fail && fail(res)) || wx.showToast({
+        title: '无法发起请求',
+        icon: 'loading',
+        duration: 1500
+      });
     },
     complete: function(res){
       complete && fail(complete);
