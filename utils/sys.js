@@ -41,7 +41,7 @@ const ajax = (param, success, fail, complete) => {      //获取接口服务器�
     method: param.method || 'GET',
     dataType: param.dataType || '',
     responseType: param.responseType || '',
-    success: function (res) {   //这里是调用微信的wx.requestApi成功
+    success: res => {   //这里是调用微信的wx.requestApi成功
       wx.hideLoading();
       if(res.statusCode == 200){    //状态码200，是后台服务器返回成功
         if(res.data.code == '000000'){    //接口返回正常数据
@@ -59,7 +59,7 @@ const ajax = (param, success, fail, complete) => {      //获取接口服务器�
         });
       }
     },
-    fail: function (res) {     //接口响应失败
+    fail: res => {     //接口响应失败
       wx.hideLoading();
       (fail && fail(res)) || wx.showToast({
         title: '无法发起请求',
@@ -67,7 +67,7 @@ const ajax = (param, success, fail, complete) => {      //获取接口服务器�
         duration: 1500
       });
     },
-    complete: function(res){
+    complete: res => {
       complete && fail(complete);
     }
   })

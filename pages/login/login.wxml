@@ -1,0 +1,5 @@
+<!--login.wxml-->
+
+<view class="section">
+  <view>{{code}}</view>
+</view>

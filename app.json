@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/login/login",
     "pages/practice/practice",
     "pages/chapter/chapter",
     "pages/index/index",
