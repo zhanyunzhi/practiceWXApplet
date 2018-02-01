@@ -48,12 +48,12 @@ const ajax = (param, success, fail, complete) => {      //获取接口服务器�
           success && success(res);
         } else if (res.data.code != '000000') {   //接口返回非正常数据（参数错误，数据库错误等的处理）
           wx.showToast({
-            title: res.data.message,
+            title: res.data.message || '请求出错',
             icon: 'loading'
           });
         }
       } else {    //后台服务器返回非200状态的处理
-        wx.showToast({
+        (fail && fail(res)) || wx.showToast({
           title: '服务器访问失败',
           icon: 'loading'
         });

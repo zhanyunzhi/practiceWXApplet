@@ -8,7 +8,7 @@ Page({
     code: ''
   },
   onLoad: function () {
-    common.login((res) => {
+    common.wxLogin((res) => {
       console.log(res)
     })
   }
