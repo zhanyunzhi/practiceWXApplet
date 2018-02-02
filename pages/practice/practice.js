@@ -236,4 +236,36 @@ Page({
       isShowPop: false
     });
   },
+  //增加收藏
+  collectAdd: function () {    //isNewTopic是否要重新执行一次getNowTopic
+    let _this = this;
+    let url = sys.getHost() + path.getPath('collectAdd');
+    let data = {};
+    data.qid = this.data.topic.qid;
+    let param = {};
+    param.url = url;
+    param.data = data;    //参数
+    param.method = 'POST';
+    sys.ajax(param, function (res) {
+      wx.showToast({
+        title: '收藏成功',
+      })
+    });
+  },
+  //删除收藏
+  collectDelete: function () {    //isNewTopic是否要重新执行一次getNowTopic
+    let _this = this;
+    let url = sys.getHost() + path.getPath('collectDelete');
+    let data = {};
+    data.qid = this.data.topic.qid;
+    let param = {};
+    param.url = url;
+    param.data = data;    //参数
+    param.method = 'POST';
+    sys.ajax(param, function (res) {
+      wx.showToast({
+        title: '删除成功',
+      })
+    });
+  },
 })

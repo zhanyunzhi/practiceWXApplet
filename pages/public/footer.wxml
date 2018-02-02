@@ -1,10 +1,10 @@
 <!-- footer,底部快捷操作，根据不同的配置显示不同的快捷操作按钮 -->
 <view class="footer" wx:if="{{footerConfig.isShow}}">
-  <view wx:if="{{footerConfig.isIndex}}">
+  <view wx:if="{{footerConfig.isIndex}}" bindtap="collectDelete">
     <image class="icon-home" mode="widthFix" src="../../assets/images/home.png"></image>
     <text>首页</text>
   </view>
-  <view wx:if="{{footerConfig.isCollect}}">
+  <view wx:if="{{footerConfig.isCollect}}" bindtap="collectAdd">
     <image class="icon-collect" mode="widthFix" src="../../assets/images/collect.png"></image>
     <text>收藏</text>
   </view>
