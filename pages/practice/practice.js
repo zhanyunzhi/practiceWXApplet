@@ -25,6 +25,7 @@ Page({
     isShowPop: false, //是否打开题目选择框
     nowCount: 1, //当前是第几题
     sumCount: 0, //一共多少题
+    collectImgSrc: '../../assets/images/collect.png',
     footerConfig: {     //footer的配置
       isShow: true,    //是否显示底部菜单
       isIndex: true,     //是否显示底部菜单的“首页”
@@ -124,6 +125,7 @@ Page({
     count++;
     this.data.nowCount++;     //计数器加一
     this.setData({
+      collectImgSrc: '../../assets/images/collect.png',
       nowCount: this.data.nowCount
     });
     this.getNowTopic();
@@ -238,7 +240,9 @@ Page({
   },
   //增加收藏
   collectAdd: function () {    //isNewTopic是否要重新执行一次getNowTopic
-    let _this = this;
+    this.setData({
+      collectImgSrc: '../../assets/images/collect-active.png',
+    })
     let url = sys.getHost() + path.getPath('collectAdd');
     let data = {};
     data.qid = this.data.topic.qid;
