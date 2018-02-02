@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <text>标题简介</text>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="section">
+  <view class="title">
+    <text>最新产品</text>
+  </view>
+  <view class="content clearfix">
+    <view class="product" bindtap="jumpTo" data-url="../news/news">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+      <view class="p_name">新闻头条</view>
+      <view class="p_price"><text>￥100.00</text><button size="mini" type="warn" >详情</button></view>
+    </view>
+    <view class="product">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+      <view class="p_name">产品名称</view>
+      <view class="p_price"><text>￥100.00</text><button size="mini" type="warn" >详情</button></view>
+    </view>
+    <view class="product">
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+      <view class="p_name">产品名称</view>
+      <view class="p_price"><text>￥100.00</text><button size="mini" type="warn">详情</button></view>
+    </view>
+  </view>
+</view>

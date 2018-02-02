@@ -4,29 +4,25 @@
   <block wx:for="{{imgUrls}}">
     <swiper-item>
       <image src="{{item}}" class="slide-image"/>
+      <view class="slide-text"><text>热烈庆祝练习吧系统上线</text></view>
     </swiper-item>
   </block>
 </swiper>
-
-<view class="section">
-  <view class="title">
-    <text>最新产品</text>
+<view class="content">
+  <view class="section">
+    <view class="left bg-blue" bindtap='jumpTo' data-url='../chapter/chapter'>新三板董秘考试</view>
+    <view class="right bg-blue" bindtap='jumpTo' data-url='../chapter/chapter'>新三板董秘练习</view>
   </view>
-  <view class="content clearfix">
-    <view class="product" bindtap="jumpTo" data-url="../news/news">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-      <view class="p_name">新闻头条</view>
-      <view class="p_price"><text>￥100.00</text><button size="mini" type="warn" >详情</button></view>
-    </view>
-    <view class="product">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-      <view class="p_name">产品名称</view>
-      <view class="p_price"><text>￥100.00</text><button size="mini" type="warn" >详情</button></view>
-    </view>
-    <view class="product">
-      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-      <view class="p_name">产品名称</view>
-      <view class="p_price"><text>￥100.00</text><button size="mini" type="warn">详情</button></view>
-    </view>
+  <view class="section">
+    <view class="left bg-green">新三板董秘考试</view>
+    <view class="right bg-green">新三板董秘练习</view>
+  </view>
+  <view class="section">
+    <view class="left bg-orange">新三板董秘考试</view>
+    <view class="right bg-orange">新三板董秘练习</view>
+  </view>
+  <view class="section">
+    <view class="left bg-purple" bindtap='jumpTo' data-url='../chapter/chapter'>版本</view>
+    <view class="right bg-purple" bindtap='jumpTo' data-url='../chapter/chapter'>关于</view>
   </view>
 </view>

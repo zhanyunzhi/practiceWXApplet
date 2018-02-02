@@ -1,0 +1,49 @@
+/**index.wxss**/
+.slide-image{
+  width: 100%;
+  height:100%;
+}
+.section{
+  /* margin-top:20rpx; */
+  background-color: #efefef;
+}
+.section .title{
+  font-size:32rpx;
+  color: #333333;
+  padding:10rpx 20rpx;
+}
+.section .content{
+}
+.product{
+  width:325rpx;
+  /* height:345rpx; */
+  float: left; 
+  margin-left:20rpx;
+  margin-bottom:20rpx;
+  padding:10rpx 10rpx 20rpx 10rpx;
+  background-color: #ffffff;
+}
+.section .content image{
+  width:100%;
+  height:345rpx;
+}
+.p_name{
+  font-size:36rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.p_price{
+  font-size:32rpx;
+  color:coral;
+  margin-top:10rpx;
+}
+.p_price text{
+  margin-top:6rpx;
+  display: inline-block;
+}
+.p_price button{
+  padding:0 20rpx;
+  line-height: 1.8;
+  float:right;
+}
