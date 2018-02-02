@@ -240,9 +240,7 @@ Page({
   },
   //增加收藏
   collectAdd: function () {    //isNewTopic是否要重新执行一次getNowTopic
-    this.setData({
-      collectImgSrc: '../../assets/images/collect-active.png',
-    })
+    let _this = this;
     let url = sys.getHost() + path.getPath('collectAdd');
     let data = {};
     data.qid = this.data.topic.qid;
@@ -251,6 +249,9 @@ Page({
     param.data = data;    //参数
     param.method = 'POST';
     sys.ajax(param, function (res) {
+      _this.setData({
+        collectImgSrc: '../../assets/images/collect-active.png',
+      })
       wx.showToast({
         title: '收藏成功',
       })
